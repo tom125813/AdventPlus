@@ -1,0 +1,9 @@
+name: AdventPlus
+version: '${project.version}'
+main: com.doontcare.adventplus.AdventPlus
+api-version: 1.19
+authors: [ doontcare ]
+description: A fully customizable advent calendar plugin
+commands:
+  advent:
+    description: Claim your daily advent gifts!
