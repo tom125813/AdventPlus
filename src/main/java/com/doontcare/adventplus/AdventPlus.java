@@ -27,7 +27,7 @@ public final class AdventPlus extends JavaPlugin {
         adventManager = new AdventManager();
         adventInventory = new AdventInventory();
 
-        commandAdvent = new CommandAdvent();
+        commandAdvent = new CommandAdvent(this);
 
         getCommand("advent").setExecutor(commandAdvent);
     }

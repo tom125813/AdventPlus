@@ -1,5 +1,8 @@
 package com.doontcare.adventplus.commands;
 
+import com.doontcare.adventplus.AdventPlus;
+import com.doontcare.adventplus.advent.AdventInventory;
+import com.doontcare.adventplus.config.ConfigManager;
 import com.doontcare.adventplus.utils.ChatUtils;
 import com.doontcare.adventplus.utils.DateUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -12,6 +15,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CommandAdvent implements CommandExecutor {
+
+    private AdventPlus adventPlus;
+
+    private ConfigManager configManager;
+    private AdventInventory adventInventory;
+
+    public CommandAdvent(AdventPlus adventPlus) {
+        this.adventPlus = adventPlus;
+
+        configManager = adventPlus.getConfigManager();
+        adventInventory = adventPlus.getAdventInventory();
+    }
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -44,6 +60,7 @@ public class CommandAdvent implements CommandExecutor {
             } else {
                 // Open advent inventory
                 player.sendMessage(ChatUtils.translate("&aOpening advent calendar..."));
+                player.openInventory(adventInventory.getInventory());
             }
         }
 
